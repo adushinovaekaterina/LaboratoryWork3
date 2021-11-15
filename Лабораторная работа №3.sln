@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Лабораторная работа №3", "Лабораторная работа №3.csproj", "{7F24D51F-45C3-4868-B5C0-00C4F05F2821}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Лабораторная работа №3Tests", "..\Лабораторная работа №3Tests\Лабораторная работа №3Tests.csproj", "{7BC52F43-33D2-427F-AAE2-3A80C9FED5FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7F24D51F-45C3-4868-B5C0-00C4F05F2821}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F24D51F-45C3-4868-B5C0-00C4F05F2821}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F24D51F-45C3-4868-B5C0-00C4F05F2821}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BC52F43-33D2-427F-AAE2-3A80C9FED5FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BC52F43-33D2-427F-AAE2-3A80C9FED5FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BC52F43-33D2-427F-AAE2-3A80C9FED5FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BC52F43-33D2-427F-AAE2-3A80C9FED5FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
