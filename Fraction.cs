@@ -51,7 +51,7 @@ namespace Лабораторная_работа__3
         }
 
         // метод сложения дробей
-        public static Fraction Sum(Fraction a, Fraction b)
+        public static Fraction operator+(Fraction a, Fraction b)
         {
             // ЧИСЛИТЕЛЬ = складываем произведение числителя первой дроби на знаменатель второй дроби и
             // числитель второй дроби на знаменатель первой дроби,
@@ -60,7 +60,7 @@ namespace Лабораторная_работа__3
         }
 
         // метод вычитания дробей
-        public static Fraction Sub(Fraction a, Fraction b)
+        public static Fraction operator-(Fraction a, Fraction b)
         {
             // ЧИСЛИТЕЛЬ = вычитаем произведение числителя первой дроби на знаменатель второй дроби и
             // числитель второй дроби на знаменатель первой дроби,

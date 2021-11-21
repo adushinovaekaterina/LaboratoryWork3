@@ -77,16 +77,22 @@ namespace Лабораторная_работа__3
             }
             enterLast = false; // опускаем флаг того, что введены две дроби
         }
-
-        // проверка, является ли дробь правильной
-        private void RightFraction()
+        // при каждой загрузке формы будет срабатывать следующий код
+        private void Form1_Load(object sender, EventArgs e)
         {
-            // если textBox1, textBox2, textBox3, textBox4 преобразованы в числа типа int, то
+            label2.Text = ""; // очистка label2
+            label3.Text = ""; // очистка label3
+            label4.Text = ""; // очистка label4
+        }
+        // кнопка для получения результирующей дроби
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //если textBox1, textBox2, textBox3, textBox4 преобразованы в числа типа int, то
             if ((int.TryParse(textBox1.Text, out p)) && (int.TryParse(textBox2.Text, out p))
                 && (int.TryParse(textBox3.Text, out p)) && (int.TryParse(textBox4.Text, out p)))
             {
                 // если абсолютное значение textBox1 больше или равно абсолютному значению textBox2
-                // И абсолютное значение textBox3 больше или равно абсолютному значению textBox4
+                // И абсолютное значение textBox3 больше или равно абсолютному значению textBox4, то
                 if ((Math.Abs(int.Parse(textBox1.Text)) >= (Math.Abs((int.Parse(textBox2.Text))))
                     && ((Math.Abs(int.Parse(textBox3.Text)) >= ((Math.Abs(int.Parse(textBox4.Text))))))))
                 {
@@ -111,18 +117,6 @@ namespace Лабораторная_работа__3
                     MessageBox.Show("Числитель должен быть меньше знаменателя");
                 }
             }
-        }
-        // при каждой загрузке формы будет срабатывать следующий код
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            label2.Text = ""; // очистка label2
-            label3.Text = ""; // очистка label3
-            label4.Text = ""; // очистка label4
-        }
-        // кнопка для получения результирующей дроби
-        private void button1_Click(object sender, EventArgs e)
-        {
-            RightFraction(); // проверка, является ли дробь правильной
             switch (textBox1.Text) // сравниваем textBox1 с набором значений
             {
                 case "": // если ничего не введено в textBox1
@@ -161,10 +155,8 @@ namespace Лабораторная_работа__3
                         Drobb = new Fraction(Convert.ToInt32(textBox3.Text), Convert.ToInt32(textBox4.Text));
 
                         label3.Text = Convert.ToString(Droba); // строкое представление первой дроби в label3
-                        label4.Text = Convert.ToString(Drobb); // строкое представление второй дроби в label4
-
-                        // строкое представление результирующей дроби в label2
-                        label2.Text = Fraction.Sum(Droba, Drobb).ToString();
+                        label4.Text = Convert.ToString(Drobb); // строкое представление второй дроби в label4                        
+                        label2.Text = (Droba + Drobb).ToString(); // строкое представление результирующей дроби в label2
                     }
                     else // иначе
                     {
@@ -182,7 +174,8 @@ namespace Лабораторная_работа__3
                         Drobb = new Fraction(Convert.ToInt32(textBox3.Text), Convert.ToInt32(textBox4.Text));
                         label3.Text = Convert.ToString(Droba);
                         label4.Text = Convert.ToString(Drobb);
-                        label2.Text = Fraction.Sub(Droba, Drobb).ToString();
+                        label2.Text = (Droba - Drobb).ToString();
+
                     }
                     else
                     {
@@ -256,7 +249,17 @@ namespace Лабораторная_работа__3
         // кнопка для сокращения первой дроби
         private void button2_Click(object sender, EventArgs e)
         {
-            RightFraction(); // проверка, является ли дробь правильной
+            // если textBox1, textBox2 преобразованы в числа типа int, то
+            if ((int.TryParse(textBox1.Text, out p)) && (int.TryParse(textBox2.Text, out p)))
+            {
+                // если абсолютное значение textBox1 больше или равно абсолютному значению textBox2, то
+                if (Math.Abs(int.Parse(textBox1.Text)) >= (Math.Abs(int.Parse(textBox2.Text))))
+                {
+                    textBox1.Clear(); // очищаем textBox1
+                    textBox2.Clear(); // очищаем textBox2
+                    MessageBox.Show("Числитель должен быть меньше знаменателя");
+                }
+            }
 
             // если textBox1, textBox2 преобразованы в числа типа int, то
             if ((int.TryParse(textBox1.Text, out p)) && (int.TryParse(textBox2.Text, out p)))
@@ -269,6 +272,7 @@ namespace Лабораторная_работа__3
                 textBox1.Text = Droba.getNumerator().ToString(); // вывод сокращенного числителя в первый textBox
                 textBox2.Text = Droba.getDenominator().ToString(); // вывод сокращенного знаменателя во второй textBox
                 label3.Text = Droba.ToString(); // вывод сокращенной дроби в label3
+
             }
             else
             {
@@ -280,8 +284,17 @@ namespace Лабораторная_работа__3
         // кнопка для сокращения второй дроби
         private void button3_Click(object sender, EventArgs e)
         {
-            RightFraction(); // проверка, является ли дробь правильной
-
+            // если textBox3, textBox4 преобразованы в числа типа int, то
+            if (int.TryParse(textBox3.Text, out p) && (int.TryParse(textBox4.Text, out p)))
+            {
+                // если абсолютное значение textBox3 больше или равно абсолютному значению textBox4, то
+                if (Math.Abs(int.Parse(textBox3.Text)) >= (Math.Abs(int.Parse(textBox4.Text))))
+                {
+                    textBox3.Text = "";
+                    textBox4.Text = "";
+                    MessageBox.Show("Числитель должен быть меньше знаменателя");
+                }
+            }
             // если textBox3, textBox4 преобразованы в числа типа int, то
             if ((int.TryParse(textBox3.Text, out p)) && (int.TryParse(textBox4.Text, out p)))
             {
@@ -304,7 +317,36 @@ namespace Лабораторная_работа__3
         // кнопка для сокращения результирующей дроби
         private void button4_Click(object sender, EventArgs e)
         {
-            RightFraction(); // проверка, является ли дробь правильной
+            // если textBox1, textBox2, textBox3, textBox4 преобразованы в числа типа int, то
+            if ((int.TryParse(textBox1.Text, out p)) && (int.TryParse(textBox2.Text, out p))
+                && (int.TryParse(textBox3.Text, out p)) && (int.TryParse(textBox4.Text, out p)))
+            {
+                // если абсолютное значение textBox1 больше или равно абсолютному значению textBox2
+                // И абсолютное значение textBox3 больше или равно абсолютному значению textBox4
+                if ((Math.Abs(int.Parse(textBox1.Text)) >= (Math.Abs((int.Parse(textBox2.Text))))
+                    && ((Math.Abs(int.Parse(textBox3.Text)) >= ((Math.Abs(int.Parse(textBox4.Text))))))))
+                {
+                    textBox1.Clear(); // очищаем textBox1
+                    textBox2.Clear(); // очищаем textBox2
+                    textBox3.Clear(); // очищаем textBox3
+                    textBox4.Clear(); // очищаем textBox4
+                    MessageBox.Show("Числитель должен быть меньше знаменателя");
+                }
+                // если абсолютное значение textBox1 больше или равно абсолютному значению textBox2
+                else if (Math.Abs(int.Parse(textBox1.Text)) >= (Math.Abs(int.Parse(textBox2.Text))))
+                {
+                    textBox1.Clear(); // очищаем textBox1
+                    textBox2.Clear(); // очищаем textBox2
+                    MessageBox.Show("Числитель должен быть меньше знаменателя");
+                }
+                // если абсолютное значение textBox3 больше или равно абсолютному значению textBox4
+                else if (Math.Abs(int.Parse(textBox3.Text)) >= (Math.Abs(int.Parse(textBox4.Text))))
+                {
+                    textBox3.Text = "";
+                    textBox4.Text = "";
+                    MessageBox.Show("Числитель должен быть меньше знаменателя");
+                }
+            }
             switch (textBox1.Text)
             {
                 case "":
@@ -341,7 +383,8 @@ namespace Лабораторная_работа__3
                         label4.Text = Convert.ToString(Drobb);
 
                         // сокращаем результирующую дробь с помощью метода Reduction()
-                        label2.Text = Fraction.Sum(Droba, Drobb).Reduction().ToString();
+                        //label2.Text = Fraction.Sum(Droba, Drobb).Reduction().ToString();
+                        label2.Text = (Droba + Drobb).Reduction().ToString();
                     }
                     else
                     {
@@ -361,7 +404,7 @@ namespace Лабораторная_работа__3
                         label4.Text = Convert.ToString(Drobb);
 
                         // сокращаем результирующую дробь с помощью метода Reduction()
-                        label2.Text = Fraction.Sub(Droba, Drobb).Reduction().ToString();
+                        label2.Text = (Droba + Drobb).Reduction().ToString();
                     }
                     else
                     {
